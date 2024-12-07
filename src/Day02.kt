@@ -1,6 +1,6 @@
 
 fun main() {
-    // uses recursion to validate the report is ascending or descending
+    // uses recursion to traverse the report and its possible "branches" when tolerance is greater than 0
     fun validateReport(report: List<String>, order: String, tolerance: Int, previousLevels: List<String>): Boolean {
         val mutablePreviousLevels = previousLevels.toMutableList()
         if (report.size < 2) {
@@ -70,6 +70,7 @@ fun main() {
         var countSafeReports = 0
 
         input.map { report ->
+            //  validate the report is ascending or descending by checking the average value
             val report = report.split(" ")
             val averageReportValue = report.map { it.toInt() }.average().toInt()
 
